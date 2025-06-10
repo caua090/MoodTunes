@@ -2,7 +2,6 @@
 
 MoodTunes é um aplicativo web que recomenda músicas com base no humor do usuário. De forma simples, visual e interativa, o usuário escolhe um emoji que representa seu estado emocional e recebe sugestões musicais personalizadas.
 
-![MoodTunes Preview](preview.jpg) <!-- (adicione uma imagem se quiser) -->
 
 ---
 
