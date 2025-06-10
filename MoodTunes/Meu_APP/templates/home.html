@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    
+  <meta charset="UTF-8">
+  <title>MoodTunes 🎵</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const buttons = document.querySelectorAll('.emoji-button');
+      const body = document.body;
+
+      buttons.forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+          body.classList.add('bg-' + btn.value);
+        });
+        btn.addEventListener('mouseleave', function() {
+          body.classList.remove('bg-' + btn.value);
+        });
+      });
+    });
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #4CAF50;
+    }
+    .mood-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .emoji-button {
+      font-size: 2em;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .emoji-button:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .bg-feliz { background:  #f3e873 !important; }
+    .bg-triste { background: #80caff !important; }
+    .bg-estressado { background: #ec4f66 !important; }
+    .bg-cansado { background: #c59eff !important; }
+    .bg-focado { background: #91ff9a !important; }
+    .bg-apaixonado { background: #fa94b6 !important; }
+   </style>
+
+
+</head>
+<body>
+  
+  <h1>MoodTunes 🎶</h1>
+  <p>Escolha seu humor:</p>
+
+  <div class="mood-grid">
+    <form method="post" action="{% url 'recomendar' %}">
+      {% csrf_token %}
+      <button name="humor" value="feliz" class="emoji-button feliz" >😊</button>
+      <button name="humor" value="triste" class="emoji-button triste">😢</button>
+      <button name="humor" value="estressado" class="emoji-button estressado">😠</button>
+      <button name="humor" value="cansado" class="emoji-button cansado">😴</button>
+      <button name="humor" value="focado" class="emoji-button focado">😎</button>
+      <button name="humor" value="apaixonado" class="emoji-button apaixonado">😍</button>
+    </form>
+  </div>
+</body>
+</html>
